@@ -1,0 +1,8 @@
+{
+  "name": "site-passerelles-esperance",
+  "version": "1.0.0",
+  "description": "Site vitrine Passerelles Espérance",
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html Logo_Passerelles_esperance.png dist/"
+  }
+}
