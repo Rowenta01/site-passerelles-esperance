@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passerelles Esp&eacute;rance &mdash; des vies transform&eacute;es, des vocations renouvel&eacute;es</title>
+<meta name="description" content="Passerelles Esp&eacute;rance est un projet missionnaire chr&eacute;tien port&eacute; par Jean-Pascal Le Guehennec. Accompagnement, formation, soin pastoral, cr&eacute;ativit&eacute; et innovation au service de l'&Eacute;vangile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..700&family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+/* =============================================
+   RESET & CUSTOM PROPERTIES
+   ============================================= */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --blue:#2978A8;
+  --blue-deep:#1B5E85;
+  --blue-night:#12405C;
+  --blue-sky:#6DB5D9;
+  --blue-pale:#E4F0F7;
+  --blue-ghost:rgba(41,120,168,0.04);
+  --orange:#D4841B;
+  --orange-soft:rgba(212,132,27,0.08);
+  --gold:#C9952A;
+  --gold-soft:rgba(201,149,42,0.1);
+  --cream:#FAFAF6;
+  --cream-warm:#F5F2EC;
+  --warm-white:#FFFEFA;
+  --charcoal:#1E1E1E;
+  --text:#3A3632;
+  --text-muted:#7A756E;
+  --text-light:#A09A92;
+  --border:rgba(41,120,168,0.07);
+  --nav-h:72px;
+  --section-y:clamp(5rem,10vw,9rem);
+  --container-w:1320px;
+  --radius-xl:2rem;
+  --radius-lg:1.25rem;
+  --radius-md:0.75rem;
+  --ease-out-expo:cubic-bezier(0.16,1,0.3,1);
+  --ease-spring:cubic-bezier(0.34,1.56,0.64,1);
+}
+
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 1rem)}
+body{
+  font-family:'DM Sans',system-ui,sans-serif;
+  color:var(--text);
+  background:var(--cream);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+::selection{background:var(--blue-pale);color:var(--blue-deep)}
+
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
+h1,h2,h3{font-family:'Outfit',system-ui,sans-serif;font-weight:600;line-height:1.15;color:var(--charcoal)}
+h4{font-family:'Outfit',system-ui,sans-serif;font-weight:600;line-height:1.3;color:var(--charcoal)}
+
+.display{
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:400;
+  font-style:normal;
+  font-optical-sizing:auto;
+}
+.display-italic{
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:400;
+  font-style:italic;
+}
+
+h1{font-size:clamp(2.4rem,5.5vw,4rem);letter-spacing:-0.03em}
+h2{font-size:clamp(1.8rem,3.5vw,2.8rem);letter-spacing:-0.02em}
+h3{font-size:clamp(1.15rem,1.8vw,1.4rem)}
+h4{font-size:1.05rem}
+
+p{max-width:65ch;line-height:1.75;font-size:1.02rem}
+.text-lg{font-size:clamp(1.08rem,1.4vw,1.2rem);line-height:1.75}
+
+.label{
+  font-family:'Outfit',sans-serif;
+  font-weight:500;font-size:0.78rem;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--orange);
+}
+
+/* =============================================
+   LAYOUT
+   ============================================= */
+.container{max-width:var(--container-w);margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+.section{padding:var(--section-y) 0}
+
+/* =============================================
+   NAVIGATION
+   ============================================= */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:var(--nav-h);
+  background:rgba(250,250,246,0.8);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:box-shadow 0.5s ease,background 0.5s ease;
+}
+.nav.scrolled{
+  box-shadow:0 8px 40px rgba(27,94,133,0.06);
+  background:rgba(250,250,246,0.95);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:100%;max-width:var(--container-w);margin:0 auto;
+  padding:0 clamp(1.25rem,4vw,3rem);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:0.65rem;
+  text-decoration:none;color:var(--charcoal);
+}
+.nav-logo img{height:40px;width:auto}
+.nav-logo-text{
+  display:flex;flex-direction:column;line-height:1.15;
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:1.05rem;
+}
+.nav-logo-sub{
+  font-weight:400;font-size:0.6rem;color:var(--text-muted);
+  letter-spacing:0.04em;
+}
+
+.nav-links{display:flex;align-items:center;gap:clamp(1.2rem,2.5vw,2.2rem);list-style:none}
+.nav-links a{
+  text-decoration:none;color:var(--text-muted);
+  font-family:'Outfit',sans-serif;font-weight:500;font-size:0.88rem;
+  letter-spacing:0.01em;
+  transition:color 0.3s ease;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-6px;left:0;
+  width:0;height:1.5px;background:var(--orange);border-radius:2px;
+  transition:width 0.4s var(--ease-out-expo);
+}
+.nav-links a:hover{color:var(--charcoal)}
+.nav-links a:hover::after{width:100%}
+.nav-links a.active{color:var(--blue)}
+
+.nav-cta{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.55rem 1.4rem;
+  background:var(--blue-deep);color:#fff;
+  border-radius:50px;font-family:'Outfit',sans-serif;
+  font-weight:500;font-size:0.85rem;text-decoration:none;
+  transition:transform 0.35s var(--ease-out-expo),box-shadow 0.35s ease,background 0.35s ease;
+  box-shadow:0 4px 16px rgba(27,94,133,0.2);
+}
+.nav-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 28px rgba(27,94,133,0.28);
+  background:var(--blue-night);
+}
+.nav-cta:active{transform:translateY(0) scale(0.97)}
+
+/* Burger */
+.burger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:8px;z-index:110;
+}
+.burger span{
+  width:24px;height:2px;background:var(--charcoal);border-radius:2px;
+  transition:transform 0.4s var(--ease-out-expo),opacity 0.3s ease;display:block;
+}
+.burger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.burger.active span:nth-child(2){opacity:0}
+.burger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+.btn{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  padding:0.85rem 2rem;border-radius:50px;
+  font-family:'Outfit',sans-serif;font-weight:500;font-size:0.95rem;
+  text-decoration:none;cursor:pointer;border:none;
+  transition:transform 0.35s var(--ease-out-expo),box-shadow 0.35s ease;
+}
+.btn:active{transform:translateY(-1px) scale(0.97)}
+
+.btn-fill{
+  background:var(--orange);color:#fff;
+  box-shadow:0 6px 24px rgba(212,132,27,0.25);
+}
+.btn-fill:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 36px rgba(212,132,27,0.35);
+}
+
+.btn-outline{
+  background:transparent;color:var(--blue-deep);
+  border:1.5px solid var(--blue);
+}
+.btn-outline:hover{
+  background:var(--blue-deep);color:#fff;
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(27,94,133,0.15);
+}
+
+.btn-ghost{
+  background:rgba(255,255,255,0.1);color:#fff;
+  border:1.5px solid rgba(255,255,255,0.2);
+}
+.btn-ghost:hover{
+  background:rgba(255,255,255,0.18);
+  transform:translateY(-2px);
+}
+
+/* =============================================
+   HERO
+   ============================================= */
+.hero{
+  min-height:100dvh;
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  align-items:center;
+  gap:clamp(2rem,6vw,6rem);
+  padding-top:calc(var(--nav-h) + clamp(2rem,4vw,4rem));
+  padding-bottom:clamp(3rem,6vw,5rem);
+  position:relative;
+  overflow:hidden;
+}
+
+/* Organic background shapes */
+.hero::before{
+  content:'';position:absolute;
+  top:-15%;right:-8%;
+  width:55vw;height:55vw;
+  background:radial-gradient(circle,rgba(201,149,42,0.06) 0%,transparent 65%);
+  border-radius:50%;pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;
+  bottom:-25%;left:-12%;
+  width:45vw;height:45vw;
+  background:radial-gradient(circle,rgba(41,120,168,0.05) 0%,transparent 65%);
+  border-radius:50%;pointer-events:none;
+}
+
+.hero-content{position:relative;z-index:2}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  margin-bottom:1.8rem;
+}
+.hero-eyebrow::before{
+  content:'';width:36px;height:1.5px;background:var(--orange);border-radius:2px;
+}
+
+.hero h1{margin-bottom:1.5rem}
+.hero h1 .accent{
+  color:var(--orange);
+  font-family:'Fraunces',Georgia,serif;
+  font-style:italic;font-weight:400;
+}
+.hero-tagline{
+  font-family:'Fraunces',Georgia,serif;
+  font-style:italic;font-weight:300;
+  font-size:clamp(1.1rem,1.6vw,1.35rem);
+  color:var(--text-muted);line-height:1.7;
+  margin-bottom:2.5rem;
+  max-width:52ch;
+}
+
+.hero-actions{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:3rem}
+
+.hero-proof{
+  display:flex;gap:clamp(2rem,4vw,3.5rem);
+  padding-top:2rem;
+  border-top:1px solid var(--border);
+}
+.hero-proof-item{}
+.hero-proof-number{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  font-size:clamp(1.8rem,3vw,2.4rem);
+  color:var(--blue-deep);line-height:1;
+}
+.hero-proof-label{
+  font-size:0.78rem;color:var(--text-muted);
+  margin-top:0.3rem;font-weight:500;
+  letter-spacing:0.02em;
+}
+
+/* Hero visual column */
+.hero-visual{
+  position:relative;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-card{
+  position:relative;
+  width:100%;max-width:480px;
+  aspect-ratio:5/6;
+  border-radius:var(--radius-xl) var(--radius-xl) var(--radius-xl) 0.5rem;
+  background:linear-gradient(155deg,var(--blue-deep) 0%,var(--blue) 60%,var(--blue-sky) 100%);
+  overflow:hidden;
+  box-shadow:
+    0 40px 80px rgba(27,94,133,0.12),
+    0 16px 32px rgba(27,94,133,0.08);
+}
+.hero-card-inner{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:3rem;text-align:center;z-index:2;
+}
+.hero-card-inner img{
+  width:clamp(150px,18vw,220px);height:auto;
+  margin-bottom:2rem;
+  filter:drop-shadow(0 6px 20px rgba(0,0,0,0.15));
+}
+.hero-card-inner .tagline{
+  font-family:'Fraunces',Georgia,serif;
+  font-style:italic;font-weight:300;
+  font-size:clamp(0.95rem,1.2vw,1.1rem);
+  color:rgba(255,255,255,0.85);
+  line-height:1.65;
+}
+
+/* Floating badges */
+.hero-badge{
+  position:absolute;z-index:5;
+  background:var(--warm-white);
+  border-radius:var(--radius-lg);
+  padding:0.85rem 1.1rem;
+  box-shadow:0 12px 32px rgba(0,0,0,0.07);
+  display:flex;align-items:center;gap:0.65rem;
+  border:1px solid var(--border);
+}
+.hero-badge-top{
+  top:10%;right:-12%;
+  animation:float 7s ease-in-out infinite;
+}
+.hero-badge-bottom{
+  bottom:14%;left:-10%;
+  animation:float 8s ease-in-out infinite 1.5s;
+}
+.hero-badge-icon{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.hero-badge-icon.ic-blue{background:var(--blue-pale);color:var(--blue)}
+.hero-badge-icon.ic-orange{background:var(--orange-soft);color:var(--orange)}
+.hero-badge-text{font-size:0.8rem;font-weight:600;color:var(--charcoal);line-height:1.25;font-family:'Outfit',sans-serif}
+.hero-badge-text small{font-weight:400;color:var(--text-muted);font-size:0.7rem;display:block;margin-top:0.1rem}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+/* Decorative brushstroke accent */
+.brush-accent{
+  position:absolute;z-index:1;
+  width:120%;height:40%;bottom:-5%;left:-10%;
+  background:linear-gradient(90deg,rgba(41,120,168,0.04),rgba(212,132,27,0.04));
+  border-radius:50%;
+  filter:blur(40px);
+  pointer-events:none;
+}
+
+/* =============================================
+   SECTION: VISION
+   ============================================= */
+.vision{background:var(--warm-white);position:relative}
+.vision::before{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,var(--blue) 0%,var(--orange) 50%,var(--gold) 100%);
+}
+
+.vision-layout{
+  display:grid;
+  grid-template-columns:2fr 3fr;
+  gap:clamp(2.5rem,6vw,6rem);
+  align-items:center;
+}
+
+.vision-quote{
+  position:relative;
+  background:linear-gradient(150deg,var(--blue-night) 0%,var(--blue-deep) 100%);
+  border-radius:var(--radius-xl);
+  padding:clamp(2rem,4vw,3.5rem);
+  color:#fff;
+}
+.vision-quote::before{
+  content:'\201C';position:absolute;top:-0.15em;left:0.25em;
+  font-family:'Fraunces',Georgia,serif;font-size:8rem;
+  color:rgba(255,255,255,0.05);line-height:1;pointer-events:none;
+}
+.vision-quote blockquote{
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:300;font-style:italic;
+  font-size:clamp(1rem,1.4vw,1.2rem);
+  line-height:1.75;position:relative;z-index:2;
+}
+.vision-quote cite{
+  display:block;margin-top:1.5rem;
+  font-family:'Outfit',sans-serif;
+  font-style:normal;font-weight:400;font-size:0.85rem;
+  color:rgba(255,255,255,0.55);
+}
+
+.vision-body h2{margin-bottom:0.6rem}
+.vision-subtitle{
+  font-family:'Fraunces',Georgia,serif;
+  font-style:italic;font-weight:300;
+  font-size:1.1rem;color:var(--orange);
+  margin-bottom:1.8rem;
+}
+.vision-body p{color:var(--text-muted);margin-bottom:1rem}
+
+.vision-pillars{
+  display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:2rem;
+}
+.pill{
+  padding:0.45rem 1rem;
+  border-radius:50px;
+  font-family:'Outfit',sans-serif;font-weight:500;font-size:0.8rem;
+  background:var(--blue-pale);color:var(--blue-deep);
+  transition:transform 0.35s var(--ease-out-expo),box-shadow 0.35s ease;
+}
+.pill:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(41,120,168,0.1);
+}
+
+/* =============================================
+   SECTION: PASSEUR (Profile)
+   ============================================= */
+.passeur{position:relative;overflow:hidden}
+
+.passeur-layout{
+  display:grid;
+  grid-template-columns:1fr 1.3fr;
+  gap:clamp(2rem,5vw,5rem);
+  align-items:start;
+}
+
+.passeur-sidebar{position:sticky;top:calc(var(--nav-h) + 2rem)}
+
+.passeur-card{
+  background:var(--warm-white);
+  border-radius:var(--radius-xl);
+  padding:clamp(1.8rem,3vw,2.5rem);
+  border:1px solid var(--border);
+  box-shadow:0 16px 48px rgba(27,94,133,0.04);
+}
+.passeur-name{font-size:1.5rem;margin-bottom:0.25rem}
+.passeur-role{
+  font-family:'Fraunces',Georgia,serif;
+  font-style:italic;font-weight:300;
+  font-size:0.92rem;color:var(--orange);
+  margin-bottom:1.2rem;
+}
+.passeur-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1.5rem}
+.tag{
+  display:inline-flex;align-items:center;gap:0.3rem;
+  padding:0.3rem 0.7rem;border-radius:50px;
+  font-family:'Outfit',sans-serif;font-size:0.72rem;font-weight:500;
+  background:var(--blue-pale);color:var(--blue-deep);
+}
+.tag i{font-size:0.8rem}
+
+.passeur-bio{font-size:0.95rem;color:var(--text-muted);margin-bottom:1.5rem;line-height:1.7}
+
+.passeur-contact{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem}
+.passeur-contact-row{
+  display:flex;align-items:center;gap:0.6rem;
+  font-size:0.9rem;color:var(--text-muted);
+}
+.passeur-contact-row i{color:var(--blue);font-size:1rem;width:18px;text-align:center}
+.passeur-contact-row a{color:var(--text-muted);text-decoration:none;transition:color 0.3s ease}
+.passeur-contact-row a:hover{color:var(--blue)}
+
+.passeur-motto{
+  padding-top:1.2rem;border-top:1px solid var(--border);
+  font-family:'Fraunces',Georgia,serif;
+  font-style:italic;font-weight:300;
+  font-size:0.9rem;color:var(--blue);line-height:1.65;
+}
+
+/* Convergence cards */
+.passeur-content h2{margin-bottom:0.5rem}
+.passeur-content .vision-subtitle{margin-bottom:2rem}
+
+.conv-item{
+  display:grid;grid-template-columns:52px 1fr;gap:1rem;
+  padding:1.2rem;margin-bottom:1rem;
+  border-radius:var(--radius-lg);
+  background:var(--warm-white);
+  border:1px solid var(--border);
+  transition:transform 0.4s var(--ease-out-expo),box-shadow 0.4s ease;
+}
+.conv-item:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 28px rgba(27,94,133,0.06);
+}
+.conv-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;
+}
+.conv-icon.bg-blue{background:var(--blue-pale);color:var(--blue)}
+.conv-icon.bg-orange{background:var(--orange-soft);color:var(--orange)}
+.conv-icon.bg-gold{background:var(--gold-soft);color:var(--gold)}
+.conv-icon.bg-deep{background:rgba(27,94,133,0.08);color:var(--blue-deep)}
+.conv-icon.bg-sky{background:rgba(109,181,217,0.12);color:var(--blue-sky)}
+
+.conv-text h4{margin-bottom:0.2rem}
+.conv-text p{font-size:0.92rem;color:var(--text-muted);max-width:none;line-height:1.6}
+
+/* =============================================
+   SECTION: AXES (Mission)
+   ============================================= */
+.axes{background:var(--warm-white);position:relative}
+
+.axes-header{max-width:640px;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.axes-header h2{margin-bottom:0.5rem}
+.axes-header .vision-subtitle{margin-bottom:0}
+
+/* Bento-style asymmetric grid */
+.axes-bento{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:auto auto auto;
+  gap:clamp(0.8rem,1.5vw,1.2rem);
+}
+
+.axe-card{
+  position:relative;
+  border-radius:var(--radius-xl);
+  padding:clamp(1.6rem,3vw,2.2rem);
+  background:var(--cream);
+  border:1px solid var(--border);
+  transition:transform 0.45s var(--ease-out-expo),box-shadow 0.45s ease;
+  overflow:hidden;
+}
+.axe-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  border-radius:var(--radius-xl) var(--radius-xl) 0 0;
+  transition:height 0.4s ease;
+}
+.axe-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(27,94,133,0.06);
+}
+.axe-card:hover::before{height:5px}
+
+.axe-card:nth-child(1)::before{background:var(--blue)}
+.axe-card:nth-child(2)::before{background:var(--orange)}
+.axe-card:nth-child(3)::before{background:var(--gold)}
+.axe-card:nth-child(4)::before{background:var(--blue-deep)}
+.axe-card:nth-child(5)::before{background:var(--blue-sky)}
+
+/* Make axe 5 span full width */
+.axe-card:nth-child(5){grid-column:1 / -1}
+
+.axe-num{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  font-size:3.2rem;line-height:1;
+  position:absolute;top:0.8rem;right:1rem;
+  opacity:0.04;pointer-events:none;
+}
+
+.axe-icon{
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.25rem;margin-bottom:1rem;
+}
+.axe-card:nth-child(1) .axe-icon{background:var(--blue-pale);color:var(--blue)}
+.axe-card:nth-child(2) .axe-icon{background:var(--orange-soft);color:var(--orange)}
+.axe-card:nth-child(3) .axe-icon{background:var(--gold-soft);color:var(--gold)}
+.axe-card:nth-child(4) .axe-icon{background:rgba(27,94,133,0.08);color:var(--blue-deep)}
+.axe-card:nth-child(5) .axe-icon{background:rgba(109,181,217,0.12);color:var(--blue-sky)}
+
+.axe-card h3{margin-bottom:0.5rem}
+.axe-card p{font-size:0.93rem;color:var(--text-muted);max-width:none;line-height:1.65}
+
+.axe-list{margin-top:0.8rem;padding-left:0;list-style:none}
+.axe-list li{
+  position:relative;padding-left:1.2rem;
+  margin-bottom:0.3rem;font-size:0.88rem;color:var(--text-muted);
+}
+.axe-list li::before{
+  content:'';position:absolute;left:0;top:0.55em;
+  width:5px;height:5px;border-radius:50%;
+}
+.axe-card:nth-child(1) .axe-list li::before{background:var(--blue)}
+.axe-card:nth-child(2) .axe-list li::before{background:var(--orange)}
+.axe-card:nth-child(3) .axe-list li::before{background:var(--gold)}
+.axe-card:nth-child(4) .axe-list li::before{background:var(--blue-deep)}
+.axe-card:nth-child(5) .axe-list li::before{background:var(--blue-sky)}
+
+/* =============================================
+   SECTION: PUBLICS
+   ============================================= */
+.publics{position:relative}
+
+.publics-header{max-width:580px;margin-bottom:clamp(2rem,4vw,3.5rem)}
+.publics-header h2{margin-bottom:0.5rem}
+
+.publics-rows{display:flex;flex-direction:column;gap:clamp(1rem,2vw,1.5rem)}
+
+.pub-row{
+  display:grid;
+  grid-template-columns:100px 1fr;
+  gap:clamp(1rem,2.5vw,2rem);
+  align-items:center;
+  padding:clamp(1.2rem,2vw,1.8rem);
+  border-radius:var(--radius-xl);
+  background:var(--warm-white);
+  border:1px solid var(--border);
+  transition:transform 0.4s var(--ease-out-expo),box-shadow 0.4s ease;
+}
+.pub-row:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(27,94,133,0.05);
+}
+.pub-row:nth-child(even){direction:rtl}
+.pub-row:nth-child(even) > *{direction:ltr}
+
+.pub-icon{
+  display:flex;align-items:center;justify-content:center;
+  aspect-ratio:1;border-radius:var(--radius-lg);
+  font-size:2.2rem;
+}
+.pub-row:nth-child(1) .pub-icon{background:var(--blue-pale);color:var(--blue)}
+.pub-row:nth-child(2) .pub-icon{background:var(--orange-soft);color:var(--orange)}
+.pub-row:nth-child(3) .pub-icon{background:var(--gold-soft);color:var(--gold)}
+.pub-row:nth-child(4) .pub-icon{background:rgba(27,94,133,0.08);color:var(--blue-deep)}
+
+.pub-text h3{margin-bottom:0.35rem}
+.pub-text p{font-size:0.93rem;color:var(--text-muted);max-width:none;line-height:1.65}
+
+/* =============================================
+   SECTION: IMPACT
+   ============================================= */
+.impact{
+  background:linear-gradient(155deg,var(--blue-night) 0%,var(--blue-deep) 50%,var(--blue) 100%);
+  color:#fff;position:relative;overflow:hidden;
+}
+.impact::before{
+  content:'';position:absolute;top:-40%;right:-15%;
+  width:55vw;height:55vw;
+  background:radial-gradient(circle,rgba(201,149,42,0.06) 0%,transparent 55%);
+  border-radius:50%;pointer-events:none;
+}
+
+.impact-header{text-align:center;max-width:640px;margin:0 auto clamp(2.5rem,5vw,4rem)}
+.impact-header h2{color:#fff;margin-bottom:0.5rem}
+.impact-header .vision-subtitle{color:var(--gold)}
+
+.impact-phases{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(0.8rem,1.5vw,1.2rem);
+  margin-bottom:clamp(2.5rem,5vw,4rem);
+}
+
+.phase{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--radius-xl);
+  padding:clamp(1.5rem,2.5vw,2rem);
+  transition:transform 0.4s var(--ease-out-expo),background 0.4s ease;
+}
+.phase:hover{
+  transform:translateY(-4px);
+  background:rgba(255,255,255,0.08);
+}
+
+.phase-tag{
+  display:inline-block;
+  padding:0.28rem 0.75rem;border-radius:50px;
+  font-family:'Outfit',sans-serif;font-weight:500;
+  font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;
+  margin-bottom:1rem;
+}
+.phase:nth-child(1) .phase-tag{background:rgba(201,149,42,0.18);color:var(--gold)}
+.phase:nth-child(2) .phase-tag{background:rgba(212,132,27,0.18);color:var(--orange)}
+.phase:nth-child(3) .phase-tag{background:rgba(109,181,217,0.2);color:var(--blue-sky)}
+
+.phase h3{color:#fff;margin-bottom:0.5rem;font-size:1.2rem}
+.phase p{font-size:0.9rem;color:rgba(255,255,255,0.7);max-width:none;line-height:1.65}
+
+.impact-stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;text-align:center;
+}
+.stat{
+  padding:1.5rem 1rem;
+  background:rgba(255,255,255,0.04);
+  border-radius:var(--radius-lg);
+  border:1px solid rgba(255,255,255,0.06);
+}
+.stat-num{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  font-size:clamp(2rem,3.5vw,2.8rem);
+  color:var(--gold);line-height:1;margin-bottom:0.4rem;
+}
+.stat-label{
+  font-family:'Outfit',sans-serif;font-weight:500;
+  font-size:0.78rem;color:rgba(255,255,255,0.55);
+  text-transform:uppercase;letter-spacing:0.06em;
+}
+
+/* =============================================
+   SECTION: SOUTENIR
+   ============================================= */
+.soutenir{background:var(--warm-white);position:relative}
+
+.soutenir-layout{
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:clamp(2.5rem,5vw,5rem);
+  align-items:start;
+}
+
+.soutenir-body h2{margin-bottom:0.5rem}
+.soutenir-body .vision-subtitle{margin-bottom:1.5rem}
+.soutenir-body > p{color:var(--text-muted);margin-bottom:1rem}
+
+.fiscal{
+  background:var(--blue-pale);
+  border-radius:var(--radius-lg);
+  padding:1.5rem;margin:1.8rem 0;
+  border-left:3px solid var(--blue);
+}
+.fiscal h4{margin-bottom:0.4rem;display:flex;align-items:center;gap:0.5rem}
+.fiscal h4 i{color:var(--blue);font-size:1.1rem}
+.fiscal p{font-size:0.95rem;color:var(--text-muted);max-width:none}
+.fiscal-big{
+  font-family:'Outfit',sans-serif;font-weight:700;
+  font-size:1.5rem;color:var(--blue);
+}
+
+.don-table{width:100%;border-collapse:collapse;margin-top:1.8rem}
+.don-table th{
+  text-align:left;
+  font-family:'Outfit',sans-serif;font-weight:500;
+  font-size:0.75rem;text-transform:uppercase;letter-spacing:0.06em;
+  color:var(--text-light);padding:0.6rem 0.8rem;
+  border-bottom:2px solid var(--blue-pale);
+}
+.don-table td{
+  padding:0.75rem 0.8rem;font-size:0.92rem;
+  border-bottom:1px solid var(--border);
+}
+.don-table tbody tr{transition:background 0.3s ease}
+.don-table tbody tr:hover td{background:var(--blue-ghost)}
+.don-amt{font-weight:700;color:var(--blue)}
+.don-real{font-weight:700;color:var(--orange)}
+
+/* Sidebar */
+.soutenir-sidebar{position:sticky;top:calc(var(--nav-h) + 2rem)}
+
+.side-card{
+  border-radius:var(--radius-xl);
+  padding:clamp(1.5rem,2.5vw,2rem);
+  margin-bottom:1.2rem;
+}
+.side-card h3{margin-bottom:0.5rem;font-size:1.15rem}
+.side-card p{font-size:0.92rem;max-width:none;line-height:1.65}
+
+.side-card.card-dark{
+  background:linear-gradient(150deg,var(--blue-night),var(--blue-deep));
+  color:#fff;
+}
+.side-card.card-dark h3{color:#fff}
+.side-card.card-dark p{color:rgba(255,255,255,0.8)}
+
+.side-card.card-light{
+  background:var(--cream);
+  border:1px solid var(--border);
+}
+.side-card.card-light p{color:var(--text-muted)}
+
+.side-card.card-accent{
+  background:var(--cream);
+  border:1px solid var(--border);
+  border-left:3px solid var(--orange);
+}
+.side-card.card-accent p{color:var(--text-muted)}
+
+.side-icon{
+  width:44px;height:44px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;margin-bottom:1rem;
+}
+.card-dark .side-icon{background:rgba(255,255,255,0.1);color:var(--gold)}
+.card-light .side-icon{background:var(--blue-pale);color:var(--blue)}
+.card-accent .side-icon{background:var(--orange-soft);color:var(--orange)}
+
+/* =============================================
+   SECTION: GOUVERNANCE
+   ============================================= */
+.gouvernance{position:relative}
+
+.gouv-header{text-align:center;max-width:640px;margin:0 auto clamp(2rem,4vw,3.5rem)}
+.gouv-header h2{margin-bottom:0.5rem}
+
+.gouv-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(0.8rem,1.5vw,1.2rem);
+}
+
+.gouv-item{
+  text-align:center;
+  padding:clamp(1.5rem,2.5vw,2.5rem) clamp(1rem,2vw,1.5rem);
+  background:var(--warm-white);
+  border-radius:var(--radius-xl);
+  border:1px solid var(--border);
+  transition:transform 0.4s var(--ease-out-expo),box-shadow 0.4s ease;
+}
+.gouv-item:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(27,94,133,0.05);
+}
+
+.gouv-icon{
+  width:56px;height:56px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin:0 auto 1rem;
+}
+.gouv-item:nth-child(1) .gouv-icon{background:var(--blue-pale);color:var(--blue)}
+.gouv-item:nth-child(2) .gouv-icon{background:var(--orange-soft);color:var(--orange)}
+.gouv-item:nth-child(3) .gouv-icon{background:var(--gold-soft);color:var(--gold)}
+
+.gouv-item h3{margin-bottom:0.4rem;font-size:1.1rem}
+.gouv-item p{font-size:0.9rem;color:var(--text-muted);max-width:none;margin:0 auto;line-height:1.65}
+
+/* =============================================
+   SECTION: CONTACT / CTA FINAL
+   ============================================= */
+.cta-final{
+  background:linear-gradient(155deg,var(--blue-night) 0%,#0E3548 100%);
+  color:#fff;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cta-final::before{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:70vw;height:70vw;
+  background:radial-gradient(circle,rgba(201,149,42,0.05) 0%,transparent 50%);
+  border-radius:50%;pointer-events:none;
+}
+
+.cta-final-logo{
+  width:clamp(110px,16vw,180px);height:auto;
+  margin:0 auto 2rem;display:block;
+  filter:brightness(0) invert(1);opacity:0.75;
+}
+
+.cta-final h2{color:#fff;margin-bottom:0.6rem}
+.cta-final .vision-subtitle{color:var(--gold);margin-bottom:2rem}
+.cta-final > .container > p{
+  color:rgba(255,255,255,0.75);
+  margin:0 auto 2.5rem;max-width:52ch;
+}
+
+.cta-actions{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:3rem}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;max-width:650px;margin:0 auto 3rem;
+  text-align:center;
+}
+.contact-item i{font-size:1.3rem;color:var(--gold);margin-bottom:0.5rem;display:block}
+.contact-item a,.contact-item span{
+  color:rgba(255,255,255,0.85);text-decoration:none;
+  font-size:0.93rem;display:block;
+  transition:color 0.3s ease;
+}
+.contact-item a:hover{color:var(--gold)}
+
+.cta-verse{
+  padding-top:2.5rem;
+  border-top:1px solid rgba(255,255,255,0.08);
+  font-family:'Fraunces',Georgia,serif;
+  font-style:italic;font-weight:300;
+  font-size:0.95rem;
+  color:rgba(255,255,255,0.4);
+  max-width:48ch;margin:0 auto;line-height:1.7;
+}
+.cta-verse .ref{
+  display:block;margin-top:0.5rem;
+  font-family:'Outfit',sans-serif;
+  font-style:normal;font-weight:400;
+  font-size:0.78rem;
+  color:rgba(255,255,255,0.25);
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+.footer{
+  background:#0B2535;
+  color:rgba(255,255,255,0.4);
+  text-align:center;
+  padding:1.8rem 1rem;
+  font-size:0.82rem;
+}
+.footer-logo{
+  width:64px;height:auto;margin:0 auto 0.8rem;display:block;
+  opacity:0.35;filter:brightness(0) invert(1);
+}
+.footer a{color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.3s ease}
+.footer a:hover{color:var(--gold)}
+
+/* =============================================
+   REVEAL ANIMATIONS
+   ============================================= */
+.rv{
+  opacity:0;transform:translateY(32px);
+  transition:opacity 0.9s var(--ease-out-expo),transform 0.9s var(--ease-out-expo);
+}
+.rv.vis{opacity:1;transform:translateY(0)}
+
+.rv-l{
+  opacity:0;transform:translateX(-32px);
+  transition:opacity 0.9s var(--ease-out-expo),transform 0.9s var(--ease-out-expo);
+}
+.rv-l.vis{opacity:1;transform:translateX(0)}
+
+.rv-r{
+  opacity:0;transform:translateX(32px);
+  transition:opacity 0.9s var(--ease-out-expo),transform 0.9s var(--ease-out-expo);
+}
+.rv-r.vis{opacity:1;transform:translateX(0)}
+
+.rv-s{
+  opacity:0;transform:scale(0.93);
+  transition:opacity 0.8s ease,transform 0.8s var(--ease-out-expo);
+}
+.rv-s.vis{opacity:1;transform:scale(1)}
+
+.d1{transition-delay:0.06s}
+.d2{transition-delay:0.12s}
+.d3{transition-delay:0.18s}
+.d4{transition-delay:0.24s}
+.d5{transition-delay:0.30s}
+
+/* =============================================
+   RESPONSIVE: TABLET & MOBILE
+   ============================================= */
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr 0.9fr;gap:2.5rem}
+  .passeur-layout{grid-template-columns:1fr 1fr}
+  .impact-stats{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:768px){
+  :root{--nav-h:60px}
+
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+
+  .nav-links.open{
+    display:flex;flex-direction:column;
+    position:fixed;top:0;left:0;right:0;bottom:0;
+    background:rgba(250,250,246,0.98);
+    backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
+    justify-content:center;align-items:center;
+    gap:2.2rem;z-index:105;
+  }
+  .nav-links.open a{font-size:1.4rem;color:var(--charcoal)}
+  .nav-cta.open{
+    display:inline-flex;
+    position:fixed;bottom:2.5rem;left:50%;
+    transform:translateX(-50%);z-index:106;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    min-height:auto;
+    padding-top:calc(var(--nav-h) + 1.5rem);
+    padding-bottom:2rem;
+  }
+  .hero-visual{order:-1;max-width:300px;margin:0 auto}
+  .hero-card{aspect-ratio:1;border-radius:var(--radius-xl)}
+  .hero-badge{display:none}
+  .hero-proof{flex-wrap:wrap;gap:1.5rem}
+
+  .vision-layout{grid-template-columns:1fr}
+  .passeur-layout{grid-template-columns:1fr}
+  .passeur-sidebar{position:static}
+  .axes-bento{grid-template-columns:1fr}
+  .axe-card:nth-child(5){grid-column:auto}
+
+  .pub-row{grid-template-columns:72px 1fr}
+  .pub-row:nth-child(even){direction:ltr}
+  .pub-icon{font-size:1.6rem}
+
+  .impact-phases{grid-template-columns:1fr}
+  .impact-stats{grid-template-columns:1fr 1fr}
+
+  .soutenir-layout{grid-template-columns:1fr}
+  .soutenir-sidebar{position:static}
+
+  .gouv-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:1rem}
+}
+
+/* =============================================
+   FOCUS & ACCESSIBILITY
+   ============================================= */
+:focus-visible{
+  outline:2.5px solid var(--orange);
+  outline-offset:3px;
+  border-radius:4px;
+}
+a:focus:not(:focus-visible){outline:none}
+
+/* =============================================
+   SCROLLBAR
+   ============================================= */
+::-webkit-scrollbar{width:7px}
+::-webkit-scrollbar-track{background:var(--cream)}
+::-webkit-scrollbar-thumb{background:var(--blue-sky);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--blue)}
+
+/* =============================================
+   PRINT
+   ============================================= */
+@media print{
+  .nav,.burger,.hero-badge{display:none}
+  body{background:#fff;color:#000}
+  .impact,.cta-final{background:#fff!important;color:#000!important}
+  .impact h2,.impact h3,.cta-final h2{color:#000!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="nav" role="navigation" aria-label="Navigation principale">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" aria-label="Passerelles Esp&eacute;rance &ndash; Accueil">
+      <img src="Logo_Passerelles_esperance.png" alt="Logo Passerelles Esp&eacute;rance" loading="eager">
+      <span class="nav-logo-text">
+        Passerelles <span style="color:var(--orange)">Esp&eacute;rance</span>
+        <span class="nav-logo-sub">des vies transform&eacute;es, des vocations renouvel&eacute;es</span>
+      </span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#passeur">Le passeur</a></li>
+      <li><a href="#axes">Mission</a></li>
+      <li><a href="#publics">Publics</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#soutenir">Soutenir</a></li>
+    </ul>
+    <a href="#soutenir" class="nav-cta" id="navCta">
+      <i class="ph-bold ph-hand-heart" aria-hidden="true"></i> Nous soutenir
+    </a>
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero container section" id="accueil">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="label">Projet missionnaire chr&eacute;tien</span>
+    </div>
+    <h1>
+      Des passerelles<br>vers l'<span class="accent">esp&eacute;rance</span>
+    </h1>
+    <p class="hero-tagline">
+      Un projet de pr&eacute;sence, d'accompagnement, de formation et d'innovation,
+      ancr&eacute; en Dr&ocirc;me-Ard&egrave;che et rayonnant sur tout le territoire fran&ccedil;ais.
+      Port&eacute; par l'&Eacute;vangile, au service de vies transform&eacute;es.
+    </p>
+    <div class="hero-actions">
+      <a href="#soutenir" class="btn btn-fill">
+        <i class="ph-bold ph-hand-heart" aria-hidden="true"></i> Devenir partenaire
+      </a>
+      <a href="#vision" class="btn btn-outline">
+        <i class="ph-bold ph-arrow-down" aria-hidden="true"></i> D&eacute;couvrir le projet
+      </a>
+    </div>
+    <div class="hero-proof">
+      <div class="hero-proof-item">
+        <div class="hero-proof-number" data-count="25">25+</div>
+        <div class="hero-proof-label">ann&eacute;es d'exp&eacute;rience</div>
+      </div>
+      <div class="hero-proof-item">
+        <div class="hero-proof-number" data-count="5">5</div>
+        <div class="hero-proof-label">axes de mission</div>
+      </div>
+      <div class="hero-proof-item">
+        <div class="hero-proof-number" data-count="75">75</div>
+        <div class="hero-proof-label">partenaires recherch&eacute;s</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-inner">
+        <img src="Logo_Passerelles_esperance.png" alt="Logo Passerelles Esp&eacute;rance &ndash; silhouette bras lev&eacute;s entre vagues bleues et oranges avec rayons dor&eacute;s" loading="eager">
+        <p class="tagline">Des vies transform&eacute;es,<br>des vocations renouvel&eacute;es</p>
+      </div>
+    </div>
+    <div class="hero-badge hero-badge-top" aria-hidden="true">
+      <div class="hero-badge-icon ic-blue"><i class="ph-bold ph-cross"></i></div>
+      <div class="hero-badge-text">Ancr&eacute; dans l'&Eacute;vangile<small>Foi, pr&eacute;sence, service</small></div>
+    </div>
+    <div class="hero-badge hero-badge-bottom" aria-hidden="true">
+      <div class="hero-badge-icon ic-orange"><i class="ph-bold ph-users-three"></i></div>
+      <div class="hero-badge-text">Toutes g&eacute;n&eacute;rations<small>Jeunes, familles, a&icirc;n&eacute;s</small></div>
+    </div>
+    <div class="brush-accent"></div>
+  </div>
+</header>
+
+<!-- ============ VISION ============ -->
+<section class="vision section" id="vision">
+  <div class="container">
+    <div class="vision-layout">
+      <div class="vision-quote rv-l">
+        <blockquote>
+          &laquo;&nbsp;Accompagner les trajectoires de vie et les organisations en qu&ecirc;te de sens et d'am&eacute;lioration.
+          Mon engagement&nbsp;: mettre mon expertise de professionnel de l'humain au service de votre
+          renouvellement, port&eacute; par une &eacute;thique de vie puis&eacute;e dans les valeurs de l'&Eacute;vangile.&nbsp;&raquo;
+        </blockquote>
+        <cite>Jean-Pascal Le Guehennec, porteur du projet</cite>
+      </div>
+      <div class="vision-body rv-r">
+        <h2>Vision et vocation</h2>
+        <p class="vision-subtitle">Un passeur au service du Royaume</p>
+        <p>
+          La vocation qui se d&eacute;gage de ce projet est celle d'un <strong>passeur</strong>&nbsp;:
+          faire le lien entre des mondes qui s'ignorent parfois, accompagner des passages d&eacute;cisifs
+          dans la vie des personnes, ouvrir des chemins l&agrave; o&ugrave; certains ne voient plus d'issue,
+          et aider des communaut&eacute;s &agrave; retrouver un &eacute;lan.
+        </p>
+        <p>
+          Cette vocation missionnaire relie l'annonce de l'&Eacute;vangile &agrave; l'&eacute;coute, la pr&eacute;sence
+          spirituelle &agrave; la qualit&eacute; de l'accompagnement, la fid&eacute;lit&eacute; biblique &agrave; l'intelligence
+          des situations humaines.
+        </p>
+        <div class="vision-pillars">
+          <span class="pill rv-s d1">Rencontre</span>
+          <span class="pill rv-s d2">Encouragement</span>
+          <span class="pill rv-s d3">Formation</span>
+          <span class="pill rv-s d4">Soin</span>
+          <span class="pill rv-s d5">Transmission</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PASSEUR ============ -->
+<section class="passeur section" id="passeur">
+  <div class="container">
+    <div class="passeur-layout">
+      <div class="passeur-sidebar">
+        <div class="passeur-card rv-l">
+          <h3 class="passeur-name">Jean-Pascal Le Guehennec</h3>
+          <p class="passeur-role">Porteur du projet Passerelles Esp&eacute;rance</p>
+          <div class="passeur-tags">
+            <span class="tag"><i class="ph-bold ph-cross" aria-hidden="true"></i> Pasteur</span>
+            <span class="tag"><i class="ph-bold ph-brain" aria-hidden="true"></i> Psychologue</span>
+            <span class="tag"><i class="ph-bold ph-handshake" aria-hidden="true"></i> Coach</span>
+            <span class="tag"><i class="ph-bold ph-first-aid-kit" aria-hidden="true"></i> Aum&ocirc;nier</span>
+            <span class="tag"><i class="ph-bold ph-music-note" aria-hidden="true"></i> Musicien</span>
+            <span class="tag"><i class="ph-bold ph-chalkboard-teacher" aria-hidden="true"></i> Formateur</span>
+          </div>
+          <p class="passeur-bio">
+            50 ans, mari&eacute; &agrave; Anne, p&egrave;re de sept enfants. Fort de vingt-cinq ann&eacute;es
+            d'exp&eacute;rience &agrave; la crois&eacute;e des sph&egrave;res eccl&eacute;siale, m&eacute;dicale
+            et professionnelle. Un &eacute;vang&eacute;liste au c&oelig;ur de pasteur, un initiateur au
+            service du Royaume.
+          </p>
+          <div class="passeur-contact">
+            <div class="passeur-contact-row">
+              <i class="ph ph-envelope-simple" aria-hidden="true"></i>
+              <a href="mailto:coach.jplg@gmail.com">coach.jplg@gmail.com</a>
+            </div>
+            <div class="passeur-contact-row">
+              <i class="ph ph-phone" aria-hidden="true"></i>
+              <a href="tel:+33782787464">07 82 78 74 64</a>
+            </div>
+            <div class="passeur-contact-row">
+              <i class="ph ph-map-pin" aria-hidden="true"></i>
+              <span>Bourg-l&egrave;s-Valence (Dr&ocirc;me)</span>
+            </div>
+          </div>
+          <p class="passeur-motto">
+            &laquo;&nbsp;Ce n'est pas un b&acirc;tisseur d'empire personnel, c'est un initiateur au service du Royaume. C'est un passeur de t&eacute;moin.&nbsp;&raquo;
+          </p>
+        </div>
+      </div>
+
+      <div class="passeur-content">
+        <h2 class="rv">Un profil unique au service d'une mission singuli&egrave;re</h2>
+        <p class="vision-subtitle rv">La convergence des comp&eacute;tences</p>
+
+        <div class="conv-item rv d1">
+          <div class="conv-icon bg-blue"><i class="ph-bold ph-brain"></i></div>
+          <div class="conv-text">
+            <h4>Psychologue du travail</h4>
+            <p>Master II (Lyon, 2001). Grille de lecture des dynamiques humaines et organisationnelles, &eacute;coute active, accompagnement du changement.</p>
+          </div>
+        </div>
+        <div class="conv-item rv d2">
+          <div class="conv-icon bg-orange"><i class="ph-bold ph-book-open-text"></i></div>
+          <div class="conv-text">
+            <h4>Pasteur et th&eacute;ologien</h4>
+            <p>Dipl&ocirc;me de l'Institut Biblique de Gen&egrave;ve (2007). Profondeur spirituelle, connaissance de l'&Eacute;criture, exp&eacute;rience pastorale de terrain.</p>
+          </div>
+        </div>
+        <div class="conv-item rv d3">
+          <div class="conv-icon bg-gold"><i class="ph-bold ph-handshake"></i></div>
+          <div class="conv-text">
+            <h4>Coach certifi&eacute; et m&eacute;diateur</h4>
+            <p>Coaching syst&eacute;mique, d&eacute;cisionnel, Communication Non Violente, Enn&eacute;agramme. M&eacute;thodes rigoureuses d'accompagnement individuel et collectif.</p>
+          </div>
+        </div>
+        <div class="conv-item rv d4">
+          <div class="conv-icon bg-deep"><i class="ph-bold ph-first-aid-kit"></i></div>
+          <div class="conv-text">
+            <h4>Aum&ocirc;nier hospitalier</h4>
+            <p>DU d'aum&ocirc;nier (Strasbourg, 2025). Pr&eacute;sence d'&eacute;coute et d'esp&eacute;rance aupr&egrave;s des malades, des familles et des personnes en fin de vie.</p>
+          </div>
+        </div>
+        <div class="conv-item rv d5">
+          <div class="conv-icon bg-sky"><i class="ph-bold ph-music-note"></i></div>
+          <div class="conv-text">
+            <h4>Musicien et communicateur</h4>
+            <p>Aisance oratoire et r&eacute;dactionnelle, chants d'encouragement au chevet des malades et dans les familles, cr&eacute;ativit&eacute; artistique au service de la mission.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AXES DE MISSION ============ -->
+<section class="axes section" id="axes">
+  <div class="container">
+    <div class="axes-header rv">
+      <h2>Cinq axes compl&eacute;mentaires</h2>
+      <p class="vision-subtitle">Une mission int&eacute;grale, ancr&eacute;e dans l'&Eacute;vangile</p>
+    </div>
+    <div class="axes-bento">
+      <!-- Axe 1 -->
+      <div class="axe-card rv-s d1">
+        <span class="axe-num" aria-hidden="true">01</span>
+        <div class="axe-icon"><i class="ph-bold ph-plant" aria-hidden="true"></i></div>
+        <h3>Accompagnement et jeunesse</h3>
+        <p>Rejoindre les personnes en qu&ecirc;te de sens, particuli&egrave;rement les jeunes (15-30 ans), par des interventions concr&egrave;tes et un mentorat personnel.</p>
+        <ul class="axe-list">
+          <li>Ateliers estime de soi et Communication Non Violente en milieu scolaire</li>
+          <li>Camps et week-ends pour les 15-25 ans</li>
+          <li>Mentorat de jeunes leaders, scoutisme &eacute;vang&eacute;lique</li>
+          <li>Accompagnement de couples et de familles</li>
+        </ul>
+      </div>
+      <!-- Axe 2 -->
+      <div class="axe-card rv-s d2">
+        <span class="axe-num" aria-hidden="true">02</span>
+        <div class="axe-icon"><i class="ph-bold ph-church" aria-hidden="true"></i></div>
+        <h3>Formation des &eacute;glises</h3>
+        <p>Soutenir les &eacute;glises locales et leurs responsables par du coaching, de la m&eacute;diation et de la formation relationnelle.</p>
+        <ul class="axe-list">
+          <li>Formations en Communication Bienveillante pour les &eacute;glises</li>
+          <li>Audit-coaching d'&eacute;quipes dirigeantes (3 &agrave; 6 mois)</li>
+          <li>Pr&eacute;dications d'encouragement itin&eacute;rantes</li>
+          <li>Formation &agrave; la gestion de conflit et &agrave; la m&eacute;diation</li>
+        </ul>
+      </div>
+      <!-- Axe 3 -->
+      <div class="axe-card rv-s d3">
+        <span class="axe-num" aria-hidden="true">03</span>
+        <div class="axe-icon"><i class="ph-bold ph-heartbeat" aria-hidden="true"></i></div>
+        <h3>Soin pastoral et aum&ocirc;nerie</h3>
+        <p>Offrir une pr&eacute;sence d'&eacute;coute, de consolation et d'esp&eacute;rance aupr&egrave;s des personnes vuln&eacute;rables.</p>
+        <ul class="axe-list">
+          <li>Visites hebdomadaires en h&ocirc;pital, EHPAD et prison</li>
+          <li>Accompagnement en fin de vie et soutien aux familles en deuil</li>
+          <li>Chants d'encouragement au chevet des malades</li>
+          <li>Coaching solidaire de personnes en &eacute;puisement</li>
+        </ul>
+      </div>
+      <!-- Axe 4 -->
+      <div class="axe-card rv-s d4">
+        <span class="axe-num" aria-hidden="true">04</span>
+        <div class="axe-icon"><i class="ph-bold ph-video-camera" aria-hidden="true"></i></div>
+        <h3>Cr&eacute;ativit&eacute; et m&eacute;dias</h3>
+        <p>D&eacute;velopper des ressources et initiatives missionnaires capables de toucher un public plus large.</p>
+        <ul class="axe-list">
+          <li>Cha&icirc;ne YouTube de r&eacute;flexion spirituelle</li>
+          <li>&Eacute;criture et publication de livres</li>
+          <li>Enregistrement de chants d'&eacute;dification</li>
+          <li>Concerts et &eacute;v&eacute;nements cr&eacute;atifs pour les jeunes</li>
+        </ul>
+      </div>
+      <!-- Axe 5 (wide) -->
+      <div class="axe-card rv-s d5">
+        <span class="axe-num" aria-hidden="true">05</span>
+        <div class="axe-icon"><i class="ph-bold ph-flask" aria-hidden="true"></i></div>
+        <h3>Recherche, d&eacute;veloppement et innovation</h3>
+        <p>
+          Concevoir, tester et documenter de nouveaux formats d'action missionnaire dans une logique de capitalisation&nbsp;:
+          tout ce qui fonctionne est formalis&eacute; et rendu transmissible. Environ 10&nbsp;% du temps du missionnaire,
+          cet axe est un investissement strat&eacute;gique pour d&eacute;multiplier l'impact dans la dur&eacute;e.
+        </p>
+        <ul class="axe-list">
+          <li>Week-ends &agrave; th&egrave;me innovants (orientation professionnelle et foi, th&eacute;ologie et finances, d&eacute;couverte de la foi)</li>
+          <li>Formats d'intervention exp&eacute;rimentaux, fiches m&eacute;thodologiques transmissibles</li>
+          <li>Outils p&eacute;dagogiques r&eacute;utilisables par d'autres &eacute;glises et porteurs de projets</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PUBLICS ============ -->
+<section class="publics section" id="publics">
+  <div class="container">
+    <div class="publics-header rv">
+      <h2>Qui est concern&eacute;&nbsp;?</h2>
+      <p class="vision-subtitle">Des publics vari&eacute;s, une m&ecirc;me attention</p>
+    </div>
+    <div class="publics-rows">
+      <div class="pub-row rv d1">
+        <div class="pub-icon" aria-hidden="true"><i class="ph-bold ph-graduation-cap"></i></div>
+        <div class="pub-text">
+          <h3>Les jeunes en qu&ecirc;te de rep&egrave;res</h3>
+          <p>
+            La g&eacute;n&eacute;ration des 15-30 ans traverse une crise de rep&egrave;res&nbsp;: manque de sens, isolement,
+            difficult&eacute; &agrave; se projeter. Le projet leur propose un accompagnement concret (mentorat, camps,
+            interventions scolaires) et une parole d'encouragement enracin&eacute;e dans l'&Eacute;vangile.
+          </p>
+        </div>
+      </div>
+      <div class="pub-row rv d2">
+        <div class="pub-icon" aria-hidden="true"><i class="ph-bold ph-church"></i></div>
+        <div class="pub-text">
+          <h3>Les &eacute;glises locales et leurs responsables</h3>
+          <p>
+            De nombreuses &eacute;glises font face &agrave; des d&eacute;fis de renouvellement&nbsp;: tensions relationnelles,
+            vieillissement, manque de vision. Le projet leur apporte formations sur mesure, coaching d'&eacute;quipes
+            pastorales, m&eacute;diation et pr&eacute;dications itin&eacute;rantes.
+          </p>
+        </div>
+      </div>
+      <div class="pub-row rv d3">
+        <div class="pub-icon" aria-hidden="true"><i class="ph-bold ph-heartbeat"></i></div>
+        <div class="pub-text">
+          <h3>Les personnes vuln&eacute;rables</h3>
+          <p>
+            En milieu hospitalier, en EHPAD ou en d&eacute;tention, des personnes vivent la solitude,
+            la maladie ou la fin de vie avec un besoin profond de pr&eacute;sence, d'&eacute;coute et d'esp&eacute;rance.
+            Le projet consolide et &eacute;tend ce minist&egrave;re d'aum&ocirc;nerie.
+          </p>
+        </div>
+      </div>
+      <div class="pub-row rv d4">
+        <div class="pub-icon" aria-hidden="true"><i class="ph-bold ph-globe-hemisphere-west"></i></div>
+        <div class="pub-text">
+          <h3>Le grand public</h3>
+          <p>
+            Par les contenus num&eacute;riques (YouTube, r&eacute;seaux sociaux), les publications, les &eacute;v&eacute;nements
+            cr&eacute;atifs et la plateforme de discipulat, le projet vise &agrave; rejoindre ceux qui n'entreraient
+            pas spontan&eacute;ment dans un lieu de culte.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<section class="impact section" id="impact">
+  <div class="container">
+    <div class="impact-header rv">
+      <h2>De l'impasse &agrave; l'&eacute;mergence</h2>
+      <p class="vision-subtitle">Un plan d'action sur 24 mois</p>
+    </div>
+    <div class="impact-phases">
+      <div class="phase rv-s d1">
+        <span class="phase-tag">Mois 1 &agrave; 6</span>
+        <h3>Fondations</h3>
+        <p>
+          Cadre juridique et fiscal, comit&eacute; de soutien, communication de lancement,
+          premi&egrave;res actions pilotes (intervention scolaire, week-end jeunes, visites hospitali&egrave;res),
+          d&eacute;but de la lev&eacute;e de fonds.
+        </p>
+      </div>
+      <div class="phase rv-s d2">
+        <span class="phase-tag">Mois 7 &agrave; 12</span>
+        <h3>Mont&eacute;e en puissance</h3>
+        <p>
+          &Eacute;largissement jeunesse (2 &eacute;tablissements partenaires, 2 camps), intensification de l'aum&ocirc;nerie,
+          cycle de formation pour les &eacute;glises, lancement YouTube, r&eacute;daction du livre.
+          Objectif&nbsp;: 50 partenaires r&eacute;guliers.
+        </p>
+      </div>
+      <div class="phase rv-s d3">
+        <span class="phase-tag">Mois 13 &agrave; 24</span>
+        <h3>Rayonnement</h3>
+        <p>
+          Pr&eacute;sentation dans une dizaine d'&eacute;glises, publication du livre, concert jeunesse,
+          diffusion des outils R&amp;D, &eacute;valuation globale.
+          Objectif&nbsp;: 75 partenaires r&eacute;guliers, viabilit&eacute; &agrave; long terme.
+        </p>
+      </div>
+    </div>
+    <div class="impact-stats">
+      <div class="stat rv-s d1">
+        <div class="stat-num" data-count="100">100+</div>
+        <div class="stat-label">visites par an</div>
+      </div>
+      <div class="stat rv-s d2">
+        <div class="stat-num" data-count="10">10</div>
+        <div class="stat-label">jeunes mentor&eacute;s</div>
+      </div>
+      <div class="stat rv-s d3">
+        <div class="stat-num" data-count="6">6</div>
+        <div class="stat-label">&eacute;glises form&eacute;es</div>
+      </div>
+      <div class="stat rv-s d4">
+        <div class="stat-num" data-count="2">2</div>
+        <div class="stat-label">formats innovants par an</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOUTENIR ============ -->
+<section class="soutenir section" id="soutenir">
+  <div class="container">
+    <div class="soutenir-layout">
+      <div class="soutenir-body">
+        <h2 class="rv">S'engager aux c&ocirc;t&eacute;s du projet</h2>
+        <p class="vision-subtitle rv">Chaque don, quel qu'en soit le montant, compte</p>
+        <p class="rv">
+          Soutenir Passerelles Esp&eacute;rance, ce n'est pas seulement financer une activit&eacute;.
+          C'est contribuer &agrave; une mission qui cherche &agrave; faire exister l'&Eacute;vangile dans des
+          lieux de transition et d'attente. C'est investir dans une d&eacute;marche cr&eacute;atrice qui
+          laisse une trace durable.
+        </p>
+
+        <div class="fiscal rv">
+          <h4><i class="ph ph-receipt" aria-hidden="true"></i> Avantage fiscal</h4>
+          <p>
+            Les dons sont &eacute;ligibles &agrave; la r&eacute;duction d'imp&ocirc;t de <span class="fiscal-big">66&nbsp;%</span>
+            pour les particuliers. Un engagement de 50&nbsp;&euro; par mois revient &agrave; environ
+            <strong>17&nbsp;&euro; apr&egrave;s avantage fiscal</strong>.
+          </p>
+        </div>
+
+        <table class="don-table rv">
+          <thead>
+            <tr>
+              <th>Type de partenaire</th>
+              <th>Don mensuel</th>
+              <th>Co&ucirc;t r&eacute;el (66&nbsp;%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Piliers</strong> (&Eacute;glises, m&eacute;c&egrave;nes)</td>
+              <td class="don-amt">300&nbsp;&euro;</td>
+              <td class="don-real">102&nbsp;&euro;</td>
+            </tr>
+            <tr>
+              <td><strong>Partenaires forts</strong></td>
+              <td class="don-amt">100&nbsp;&euro;</td>
+              <td class="don-real">34&nbsp;&euro;</td>
+            </tr>
+            <tr>
+              <td><strong>Partenaires c&oelig;ur</strong></td>
+              <td class="don-amt">50&nbsp;&euro;</td>
+              <td class="don-real">17&nbsp;&euro;</td>
+            </tr>
+            <tr>
+              <td><strong>Partenaires soutien</strong></td>
+              <td class="don-amt">20&nbsp;&euro;</td>
+              <td class="don-real">6,80&nbsp;&euro;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="soutenir-sidebar">
+        <div class="side-card card-dark rv-r d1">
+          <div class="side-icon"><i class="ph-bold ph-hands-praying" aria-hidden="true"></i></div>
+          <h3>Soutien spirituel</h3>
+          <p>
+            Un r&eacute;seau d'intercesseurs est en cours de constitution. Des sujets de pri&egrave;re concrets
+            seront communiqu&eacute;s p&eacute;riodiquement. Vos messages d'encouragement, vos conseils et
+            vos mises en relation sont autant de soutiens pr&eacute;cieux.
+          </p>
+        </div>
+        <div class="side-card card-light rv-r d2">
+          <div class="side-icon"><i class="ph-bold ph-users" aria-hidden="true"></i></div>
+          <h3>Soutien humain</h3>
+          <p>
+            Le projet recherche des b&eacute;n&eacute;voles pr&ecirc;ts &agrave; donner de leur temps&nbsp;: visites hospitali&egrave;res,
+            co-organisation d'&eacute;v&eacute;nements, appui administratif ou communication.
+            Les b&eacute;n&eacute;voles seront int&eacute;gr&eacute;s &agrave; l'&eacute;quipe, form&eacute;s et supervis&eacute;s.
+          </p>
+        </div>
+        <div class="side-card card-accent rv-r d3">
+          <div class="side-icon"><i class="ph-bold ph-handshake" aria-hidden="true"></i></div>
+          <h3>R&eacute;ciprocit&eacute;</h3>
+          <p>
+            Chaque partenaire est consid&eacute;r&eacute; comme membre &agrave; part enti&egrave;re de l'&eacute;quipe missionnaire&nbsp;:
+            remerciements personnalis&eacute;s, newsletter bimestrielle, rapport annuel,
+            rencontre annuelle et priorit&eacute; pour les &eacute;v&eacute;nements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GOUVERNANCE ============ -->
+<section class="gouvernance section" id="gouvernance">
+  <div class="container">
+    <div class="gouv-header rv">
+      <h2>Transparence et redevabilit&eacute;</h2>
+      <p class="vision-subtitle">Un cadre de confiance pour les partenaires</p>
+    </div>
+    <div class="gouv-grid">
+      <div class="gouv-item rv-s d1">
+        <div class="gouv-icon"><i class="ph-bold ph-users-three" aria-hidden="true"></i></div>
+        <h3>Comit&eacute; de soutien</h3>
+        <p>5 &agrave; 7 personnes (pasteur r&eacute;f&eacute;rent, mentor spirituel, expert financier) se r&eacute;unissent chaque trimestre pour &eacute;valuer, conseiller et prier.</p>
+      </div>
+      <div class="gouv-item rv-s d2">
+        <div class="gouv-icon"><i class="ph-bold ph-file-text" aria-hidden="true"></i></div>
+        <h3>Rapports r&eacute;guliers</h3>
+        <p>Rapport d'&eacute;tape trimestriel et rapport annuel d&eacute;taill&eacute; (narratif et financier) communiqu&eacute;s &agrave; tous les partenaires. Audit externe envisag&eacute; apr&egrave;s deux ans.</p>
+      </div>
+      <div class="gouv-item rv-s d3">
+        <div class="gouv-icon"><i class="ph-bold ph-scales" aria-hidden="true"></i></div>
+        <h3>Structure reconnue</h3>
+        <p>Portage via une organisation chr&eacute;tienne existante assurant gestion l&eacute;gale, re&ccedil;us fiscaux et protection sociale compl&egrave;te du missionnaire.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / CTA FINAL ============ -->
+<section class="cta-final section" id="contact">
+  <div class="container">
+    <img src="Logo_Passerelles_esperance.png" alt="" class="cta-final-logo rv-s" aria-hidden="true" loading="lazy">
+    <h2 class="rv">Former des c&oelig;urs, transformer des vies</h2>
+    <p class="vision-subtitle rv">Rejoignez l'aventure Passerelles Esp&eacute;rance</p>
+    <p class="rv">
+      S'engager aux c&ocirc;t&eacute;s de ce projet, c'est choisir de soutenir une &oelig;uvre de pr&eacute;sence,
+      de relance et de transmission, au service de vies transform&eacute;es et de vocations renouvel&eacute;es.
+    </p>
+    <div class="cta-actions rv">
+      <a href="mailto:coach.jplg@gmail.com" class="btn btn-fill">
+        <i class="ph-bold ph-envelope-simple" aria-hidden="true"></i> Nous contacter
+      </a>
+      <a href="tel:+33782787464" class="btn btn-ghost">
+        <i class="ph-bold ph-phone" aria-hidden="true"></i> 07 82 78 74 64
+      </a>
+    </div>
+    <div class="contact-grid rv">
+      <div class="contact-item">
+        <i class="ph ph-envelope-simple" aria-hidden="true"></i>
+        <a href="mailto:coach.jplg@gmail.com">coach.jplg@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <i class="ph ph-phone" aria-hidden="true"></i>
+        <a href="tel:+33782787464">07 82 78 74 64</a>
+      </div>
+      <div class="contact-item">
+        <i class="ph ph-map-pin" aria-hidden="true"></i>
+        <span>1151 route de l'&eacute;condu<br>26500 Bourg-l&egrave;s-Valence</span>
+      </div>
+    </div>
+    <p class="cta-verse rv">
+      &laquo;&nbsp;Que chacun donne comme il l'a r&eacute;solu en son c&oelig;ur, sans tristesse ni contrainte,
+      car Dieu aime celui qui donne avec joie.&nbsp;&raquo;
+      <span class="ref">2 Corinthiens 9:7</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <img src="Logo_Passerelles_esperance.png" alt="" class="footer-logo" aria-hidden="true" loading="lazy">
+    <p>
+      Passerelles Esp&eacute;rance &copy; 2026 &middot;
+      Bas&eacute; en Dr&ocirc;me-Ard&egrave;che, interventions sur tout le territoire et au-del&agrave; &middot;
+      <a href="mailto:coach.jplg@gmail.com">Contact</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ============ JAVASCRIPT ============ -->
+<script>
+(function(){
+  'use strict';
+
+  /* ---- Nav scroll shadow ---- */
+  var nav = document.querySelector('.nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, {passive:true});
+
+  /* ---- Burger ---- */
+  var burger = document.getElementById('burger');
+  var navLinks = document.getElementById('navLinks');
+  var navCta = document.getElementById('navCta');
+
+  burger.addEventListener('click', function(){
+    var open = navLinks.classList.toggle('open');
+    navCta.classList.toggle('open', open);
+    burger.classList.toggle('active', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navLinks.classList.remove('open');
+      navCta.classList.remove('open');
+      burger.classList.remove('active');
+      burger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ---- Reveal on scroll (IntersectionObserver) ---- */
+  var revealEls = document.querySelectorAll('.rv,.rv-l,.rv-r,.rv-s');
+
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('vis');
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.1, rootMargin:'0px 0px -30px 0px'});
+
+    revealEls.forEach(function(el){ obs.observe(el) });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('vis') });
+  }
+
+  /* ---- Active nav link ---- */
+  var sections = document.querySelectorAll('section[id]');
+  var navAnchors = document.querySelectorAll('.nav-links a');
+
+  function highlightNav(){
+    var y = window.scrollY + 140;
+    sections.forEach(function(s){
+      var top = s.offsetTop;
+      var h = s.offsetHeight;
+      var id = s.getAttribute('id');
+      navAnchors.forEach(function(a){
+        if(a.getAttribute('href') === '#' + id){
+          if(y >= top && y < top + h){
+            a.classList.add('active');
+          } else {
+            a.classList.remove('active');
+          }
+        }
+      });
+    });
+  }
+  window.addEventListener('scroll', highlightNav, {passive:true});
+  highlightNav();
+
+  /* ---- Animated counters ---- */
+  function animCounters(){
+    document.querySelectorAll('.stat-num, .hero-proof-number').forEach(function(el){
+      if(el.dataset.animated) return;
+      var rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight && rect.bottom > 0){
+        el.dataset.animated = '1';
+        var text = el.textContent.trim();
+        var suffix = text.replace(/[\d]/g, '');
+        var target = parseInt(text.replace(/[^\d]/g, ''), 10);
+        if(isNaN(target)) return;
+        var dur = 1400;
+        var start = performance.now();
+        function tick(now){
+          var p = Math.min((now - start) / dur, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * ease) + suffix;
+          if(p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      }
+    });
+  }
+  window.addEventListener('scroll', animCounters, {passive:true});
+  animCounters();
+
+})();
+</script>
+</body>
+</html>
